@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities;
+package eu.cz.fit.bitjv.tadeasvalenta.semestralka.konzument.dto;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import java.util.List;
 public class FlatBox {
      private List<Flat> flats;
 
-    public List<Flat> getArticles() {
+    public List<Flat> getFlats() {
         return flats;
     }
 
-    public void setArticles(List<Flat> flats) {
+    public void setFlats(List<Flat> flats) {
         this.flats = flats;
     }
 }

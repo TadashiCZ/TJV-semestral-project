@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities;
+package eu.cz.fit.bitjv.tadeasvalenta.semestralka.konzument.dto;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import java.util.List;
 public class OccupierBox {
      private List<Occupier> occupiers;
 
-    public List<Occupier> getArticles() {
+    public List<Occupier> getOccupiers() {
         return occupiers;
     }
 
-    public void setArticles(List<Occupier> occupiers) {
+    public void setOccupiers(List<Occupier> occupiers) {
         this.occupiers = occupiers;
     }
 }

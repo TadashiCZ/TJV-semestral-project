@@ -7,6 +7,7 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -14,6 +15,7 @@ import com.vaadin.ui.VerticalLayout;
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.*;
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.konzument.dto.Flat;
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.konzument.dto.Occupier;
+import eu.cz.fit.bitjv.tadeasvalenta.semestralka.konzument.dto.OccupierBox;
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.rest.FlatClient;
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.rest.OccupierClient;
 
@@ -27,7 +29,7 @@ import eu.cz.fit.bitjv.tadeasvalenta.semestralka.rest.OccupierClient;
 @Theme("mytheme")
 public class MyUI extends UI {
     private Label occupier = new Label();
-    private TextField flatsCount = new TextField("Flat Count");
+    private TextField occupiersCount = new TextField("Flat Count");
     
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -35,7 +37,7 @@ public class MyUI extends UI {
         
          final TextField name = new TextField();
         name.setCaption("Input numer of drivers:");
-         Button button = new Button("Send");
+        Button button = new Button("Send");
         button.addClickListener(e -> {
            
         });
@@ -43,6 +45,7 @@ public class MyUI extends UI {
         
         FlatClient fs = new FlatClient();
         OccupierClient os = new OccupierClient();
+   
         
         try {
             System.out.println(fs.find_JSON(Flat.class, "1"));
@@ -61,12 +64,16 @@ public class MyUI extends UI {
         catch (Exception e){
             System.out.println("Nothing found to set");
         }
-        flatsCount.setValue(fs.countREST());
+        occupiersCount.setValue(os.countREST());
+        Grid<Occupier> grid = new Grid<>();
+        grid.setItems(os.findAllOccupiers_JSON(OccupierBox.class).getOccupiers());
         
-        layout.addComponents(name, button);
-        layout.addComponent(occupier);
-        layout.addComponent(flatsCount);
-        
+        grid.addColumn(Occupier::getName).setCaption("Name");
+        grid.addColumn(Occupier::getPhone).setCaption("Phone");
+      //    layout.addComponents(name, button);
+      //    layout.addComponent(occupier);
+      //    layout.addComponent(occupiersCount);
+        layout.addComponent(grid);
         setContent(layout);
         
     }

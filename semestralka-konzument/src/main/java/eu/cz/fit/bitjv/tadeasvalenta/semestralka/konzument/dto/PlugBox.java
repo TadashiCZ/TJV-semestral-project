@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities;
+package eu.cz.fit.bitjv.tadeasvalenta.semestralka.konzument.dto;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import java.util.List;
 public class PlugBox {
     private List<Plug> plugs;
 
-    public List<Plug> getArticles() {
+    public List<Plug> getPlugs() {
         return plugs;
     }
 
-    public void setArticles(List<Plug> plugs) {
+    public void setPlugs(List<Plug> plugs) {
         this.plugs = plugs;
     }
 }
