@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities.service;
+package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service;
 
 import java.util.List;
 import javax.persistence.EntityManager;

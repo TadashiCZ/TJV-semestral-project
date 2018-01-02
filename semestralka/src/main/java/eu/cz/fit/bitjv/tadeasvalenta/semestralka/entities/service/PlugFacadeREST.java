@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities.service;
+package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service;
 
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Plug;
 import java.util.List;

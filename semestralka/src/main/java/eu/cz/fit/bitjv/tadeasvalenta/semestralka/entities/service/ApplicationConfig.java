@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities.service;
+package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
@@ -29,9 +29,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(entities.service.FlatFacadeREST.class);
-        resources.add(entities.service.OccupierFacadeREST.class);
-        resources.add(entities.service.PlugFacadeREST.class);
+        resources.add(eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service.FlatFacadeREST.class);
+        resources.add(eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service.OccupierFacadeREST.class);
+        resources.add(eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service.PlugFacadeREST.class);
     }
     
 }
