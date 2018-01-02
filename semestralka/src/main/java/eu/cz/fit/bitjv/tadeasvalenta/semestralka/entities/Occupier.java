@@ -28,7 +28,7 @@ public class Occupier implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "OCUPPIER_NAME")
     private String name;
     
     @Column(name = "PHONE")
