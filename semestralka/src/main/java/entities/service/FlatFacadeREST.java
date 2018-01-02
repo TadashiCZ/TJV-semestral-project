@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.cz.fit.bitjv.tadeasvalenta.semestralka.service;
+package entities.service;
 
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Flat;
 import java.util.List;
@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  * @author tadas
  */
 @Stateless
-@Path("/flat/")
+@Path("eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.flat")
 public class FlatFacadeREST extends AbstractFacade<Flat> {
 
     @PersistenceContext(unitName = "eu.cz.fit.bitjv.tadeasvalenta_semestralka_war_1.0-SNAPSHOTPU")

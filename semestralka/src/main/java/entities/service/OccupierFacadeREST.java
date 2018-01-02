@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.cz.fit.bitjv.tadeasvalenta.semestralka.service;
+package entities.service;
 
-import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Plug;
+import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Occupier;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,27 +25,27 @@ import javax.ws.rs.core.MediaType;
  * @author tadas
  */
 @Stateless
-@Path("/plug/")
-public class PlugFacadeREST extends AbstractFacade<Plug> {
+@Path("eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.occupier")
+public class OccupierFacadeREST extends AbstractFacade<Occupier> {
 
     @PersistenceContext(unitName = "eu.cz.fit.bitjv.tadeasvalenta_semestralka_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
-    public PlugFacadeREST() {
-        super(Plug.class);
+    public OccupierFacadeREST() {
+        super(Occupier.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Plug entity) {
+    public void create(Occupier entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Plug entity) {
+    public void edit(@PathParam("id") Long id, Occupier entity) {
         super.edit(entity);
     }
 
@@ -58,21 +58,21 @@ public class PlugFacadeREST extends AbstractFacade<Plug> {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Plug find(@PathParam("id") Long id) {
+    public Occupier find(@PathParam("id") Long id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Plug> findAll() {
+    public List<Occupier> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Plug> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Occupier> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

@@ -1,3 +1,4 @@
 *.war
 *.jar
 semestralka-konzument/target/
+semestralka/target/

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.cz.fit.bitjv.tadeasvalenta.semestralka.service;
+package entities.service;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
 /**
  *
- * @author tadas
+ * @author jpavlicek
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
@@ -29,9 +29,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(eu.cz.fit.bitjv.tadeasvalenta.semestralka.service.FlatFacadeREST.class);
-        resources.add(eu.cz.fit.bitjv.tadeasvalenta.semestralka.service.OccupierFacadeREST.class);
-        resources.add(eu.cz.fit.bitjv.tadeasvalenta.semestralka.service.PlugFacadeREST.class);
+        resources.add(entities.service.FlatFacadeREST.class);
+        resources.add(entities.service.OccupierFacadeREST.class);
+        resources.add(entities.service.PlugFacadeREST.class);
     }
     
 }
