@@ -7,7 +7,9 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Grid;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -41,6 +43,7 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
+        HorizontalLayout flatBox = new HorizontalLayout();
         
          final TextField name = new TextField();
         name.setCaption("Input numer of drivers:");
@@ -80,11 +83,38 @@ public class MyUI extends UI {
         
         Grid<Flat> flatGrid = new Grid<>();
         flatGrid = initFlatGrid(fs.findAllFlats_JSON(FlatBox.class).getFlats());
+        flatBox.addComponent(flatGrid);
         
         Grid<Plug> plugGrid = new Grid<>();
         plugGrid = initPlugGrid(ps.findAllPlugs_JSON(PlugBox.class).getPlugs());
+        /*
+        FormLayout flatForm = new FormLayout();
+        flatBox.addComponent(flatForm);
+        TextField ff1 = new TextField("ID");
+        //ff1.setEnabled(false);
+        TextField ff2 = new TextField("Area");
+        TextField ff3 = new TextField("Rent");
+        TextField ff4 = new TextField("Door number");
+        Button fb1 = new Button("Edit");
+        Button fb2 = new Button("Delete");
+        Button fb3 = new Button("Create");
+        
+        fb1.addClickListener(e -> {
+            Flat flat = new Flat();
+            flat.setId(Long.parseLong(ff1.getValue()));
+            flat.setArea(Long.parseLong(ff2.getValue()));
+            flat.setRent(Long.parseLong(ff3.getValue()));
+            flat.setDoorNumber(Long.parseLong(ff4.getValue()));
+            fs.edit_JSON(flat, ff1.getValue());
+            FlatBox tmp = fs.findAllFlats_JSON(FlatBox.class);
+            flatGrid.setItems(tmp.getFlats());
+            flatForm.setVisible(false);
+           
+        });
+        flatForm.addComponents(ff1, ff2, ff3, ff4, new HorizontalLayout(fb1, fb2, fb3));
         
         
+        layout.addComponent(flatForm);*/
         layout.addComponent(flatGrid);
         layout.addComponent(occupierGrid);
         layout.addComponent(plugGrid);
@@ -96,6 +126,8 @@ public class MyUI extends UI {
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
     }
+    
+    
     
     public Grid<Occupier> initOccupierGrid(List<Occupier> occupiers){
         Grid<Occupier> grid = new Grid<>();
