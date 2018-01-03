@@ -64,6 +64,13 @@ public class MyUI extends UI {
         catch (Exception e){
             System.out.println("Nothing found to set");
         }
+        
+        Occupier oc = new Occupier();
+        oc.setName("Jan");
+        oc.setEmail("mail1");
+        oc.setPhone("1321312312");
+        os.create_JSON(oc);
+                
         occupiersCount.setValue(os.countREST());
         Grid<Occupier> grid = new Grid<>();
         grid.setItems(os.findAllOccupiers_JSON(OccupierBox.class).getOccupiers());

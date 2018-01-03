@@ -6,6 +6,7 @@
 package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service;
 
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Flat;
+import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.FlatBox;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -63,17 +64,20 @@ public class FlatFacadeREST extends AbstractFacade<Flat> {
     }
 
     @GET
-    @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Flat> findAll() {
-        return super.findAll();
+    public FlatBox findAllFlat() {
+        FlatBox fb = new FlatBox();
+        fb.setFlats(super.findAll());
+        return fb;
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Flat> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+    public FlatBox findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        FlatBox fb = new FlatBox();
+        fb.setFlats(super.findRange(new int[]{from, to}));
+        return fb;
     }
 
     @GET

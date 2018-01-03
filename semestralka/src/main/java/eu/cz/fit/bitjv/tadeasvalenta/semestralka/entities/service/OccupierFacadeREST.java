@@ -5,7 +5,9 @@
  */
 package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service;
 
+import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.FlatBox;
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Occupier;
+import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.OccupierBox;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -63,17 +65,20 @@ public class OccupierFacadeREST extends AbstractFacade<Occupier> {
     }
 
     @GET
-    @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Occupier> findAll() {
-        return super.findAll();
+    public OccupierBox findAllOccupier() {
+        OccupierBox fb = new OccupierBox();
+        fb.setOccupiers(super.findAll());
+        return fb;
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Occupier> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+    public OccupierBox findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        OccupierBox fb = new OccupierBox();
+        fb.setOccupiers(super.findRange(new int[]{from, to}));
+        return fb;
     }
 
     @GET

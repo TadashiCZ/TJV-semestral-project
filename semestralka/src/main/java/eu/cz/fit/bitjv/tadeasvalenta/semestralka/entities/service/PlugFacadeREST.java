@@ -6,6 +6,7 @@
 package eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.service;
 
 import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.Plug;
+import eu.cz.fit.bitjv.tadeasvalenta.semestralka.entities.PlugBox;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -63,17 +64,21 @@ public class PlugFacadeREST extends AbstractFacade<Plug> {
     }
 
     @GET
-    @Override
+ 
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Plug> findAll() {
-        return super.findAll();
+    public PlugBox findAllPlug() {
+        PlugBox pb = new PlugBox();
+        pb.setPlugs(super.findAll());
+        return pb;
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Plug> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+    public PlugBox findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        PlugBox pb = new PlugBox();
+        pb.setPlugs(super.findRange(new int[]{from, to}));
+        return pb;
     }
 
     @GET

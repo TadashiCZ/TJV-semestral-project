@@ -65,13 +65,11 @@ public class Flat implements Serializable {
     public Set<Plug> getPlugs() {
         return plugs;
     }
-
+    
     public void setPlugs(Set<Plug> plugs) {
         this.plugs = plugs;
     }
 
-    
-    
     public Long getArea() {
         return area;
     }
